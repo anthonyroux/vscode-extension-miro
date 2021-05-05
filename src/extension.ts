@@ -50,5 +50,4 @@ function getMiroBoard(boardId: string) {
 export function deactivate() {
 }
 
-// https://miro.com/app/board/o9J_lFh2iDc=/
-// https://miro.com/app/live-embed/o9J_lFh2iDc=
+// Test URL (public board): https://miro.com/app/board/o9J_lFh2iDc=/
