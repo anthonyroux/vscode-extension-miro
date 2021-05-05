@@ -15,3 +15,5 @@ Enter a valid Miro board URL.
 Profit!
 
 You can find the code in `src/extension.ts`
+
+You can watch a short demo [here](https://www.loom.com/share/94b6373a809e425fa777d6c32f4d5e01)
