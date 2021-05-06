@@ -16,11 +16,11 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('miro.start', async () => {
 		// The code you place here will be executed every time your command is executed
 		// Open an input box to ask the user to provide a board URL
-		let input =  await vscode.window.showInputBox({ 'prompt': 'Provide board URL'}) || "URL invalid";
+		let input = await vscode.window.showInputBox({ 'prompt': 'Enter board URL' }) || "Invalid URL";
 
 		// check if the URL provided is a valid URL
 		if(!input.includes("https://miro.com/app/board/")){
-			vscode.window.showErrorMessage("URL invalid");
+			vscode.window.showErrorMessage("Invalid URL");
 			return;
 		}
 
@@ -44,7 +44,9 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 function getMiroBoard(boardUrl: string) {
-	return `<iframe width="1024" height="780" src="${boardUrl}?embedAutoplay=true" frameBorder="0" scrolling="no" allowFullScreen></iframe>`;
+	return `<div style="position:absolute; left: 0; right: 0; bottom: 0; top: 0px">
+						<iframe width="100%" height="100%" src="${boardUrl}?embedAutoplay=true" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+				</div>`;
 }
 // this method is called when your extension is deactivated
 export function deactivate() {
