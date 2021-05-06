@@ -24,8 +24,8 @@ export function activate(context: vscode.ExtensionContext) {
 			return;
 		}
 
-		//  Extract the board id from the URL
-		let boardId = input.split('/')[5]
+		//  Transform the board URL into a live-embed URL
+		let boardUrl = input.replace("board", "live-embed");
 
 		// Create and show a new webview
 		const panel = vscode.window.createWebviewPanel(
@@ -37,14 +37,14 @@ export function activate(context: vscode.ExtensionContext) {
 			} // Webview options
 		);
 		// Set HTML content
-		panel.webview.html = getMiroBoard(boardId);
+		panel.webview.html = getMiroBoard(boardUrl);
 	});
 
 	context.subscriptions.push(disposable);
 }
 
-function getMiroBoard(boardId: string) {
-	return `<iframe width="768" height="432" src="https://miro.com/app/live-embed/${boardId}?embedAutoplay=true" frameBorder="0" scrolling="no" allowFullScreen></iframe>`;
+function getMiroBoard(boardUrl: string) {
+	return `<iframe width="1024" height="780" src="${boardUrl}?embedAutoplay=true" frameBorder="0" scrolling="no" allowFullScreen></iframe>`;
 }
 // this method is called when your extension is deactivated
 export function deactivate() {
