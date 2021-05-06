@@ -46,10 +46,8 @@ export function activate(context: vscode.ExtensionContext) {
 function getMiroBoard(boardUrl: string) {
 	return `<div style="position:absolute; left: 0; right: 0; bottom: 0; top: 0px">
 						<iframe width="100%" height="100%" src="${boardUrl}?embedAutoplay=true" frameBorder="0" scrolling="no" allowFullScreen></iframe>
-				</div>`;
+					</div>`;
 }
 // this method is called when your extension is deactivated
 export function deactivate() {
 }
-
-// Test URL (public board): https://miro.com/app/board/o9J_lFh2iDc=/
